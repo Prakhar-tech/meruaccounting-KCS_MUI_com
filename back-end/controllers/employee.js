@@ -36,6 +36,36 @@ const getEmployeeById = asyncHandler(async (req, res) => {
   }
 });
 
+const getEmployeeByDetails = asyncHandler(async (req, res) => {
+  const permission = ac.can(req.user.role).readOwn("member");
+  if (permission.granted) {
+    try {
+      const { id } = req.params;
+      // const employee = await User.findById(id);
+      // if (!employee) {
+      //   res.status(404);
+      //   throw new Error(`Employee not found `);
+      // }
+
+      const { usersArr } = req.body;
+      for (var i = 0; i < usersArr.length; i++) {
+        const userId = usersArr[i];
+        const employee = await User.findById(id);
+      }
+
+      res.status(200).json({
+        status: "Ok",
+        data: employee,
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  } else {
+    // resource is forbidden for this user/role
+    res.status(403).end("UnAuthorized");
+  }
+});
+
 // @desc    Get employee details
 // @route   GET /employee/employeeList
 // @access  Private

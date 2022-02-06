@@ -7,23 +7,6 @@ import { grantsObject } from "../utils/permissions.js";
 
 const ac = new AccessControl(grantsObject);
 
-/* --------------------- Role Based Access Permissions --------------------- */
-
-// ac.grant("owner")
-//   .createAny(["client", "team", "project", "members"])
-//   .deleteAny(["client", "team", "project", "members"])
-//   .readAny(["client", "team", "project", "members"])
-//   .updateAny(["client", "team", "project", "members"])
-//   // .readAny('profile', ['*', '!password'])
-//   .grant("manager")
-//   .readOwn(["client", "team", "project", "members", "reported"])
-//   .createOwn(["profile", "video"])
-//   .updateAny(["members"], "team", "project")
-//   .deleteOwn(["client", "team", "project", "members"])
-
-//   .grant("employee")
-//   .readOwn(["client", "team", "project"]);
-
 /* -------------------------------------------------------------------------- */
 
 // @desc    Create a new client
